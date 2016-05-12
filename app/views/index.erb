@@ -1,8 +1,15 @@
-<div class= "container">
-  <ul>
-    <li><a href="/">Robot Dashboard</a></li>
-    <li><a href="/robots/new">New Robot</a></li>
-  </ul>
+<nav class="navbar navbar-default">
+  <div class='container-fluid'>
+
+    <a href='/' class='navbar-brand'>Dashboard</a>
+    <ul class='nav navbar-nav navbar-right'>
+      <li><a href="/robots">All Robots</a></li>
+      <li><a href="/robots/new">New Robot</a></li>
+    </ul>
+
+  </div>
+</nav>
+
 
   <div class="jumbotron">
 
@@ -11,8 +18,10 @@
         <h1>All Robots</h1>
 
         <% @robots.each do |robot| %>
-          <h3><%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
-          <a href="/robots/<%= robot.id %>/edit">Edit</a>
+          <div class='row'>
+            <h3><%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+            <a href="/robots/<%= robot.id %>/edit">Edit</a>
+          </div>
 
         <form action="/robots/<%= robot.id %>" method="post">
           <input type="hidden" name="_method" value="DELETE">

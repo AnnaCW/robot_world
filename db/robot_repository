@@ -16,4 +16,12 @@ robots:
   birthdate: 12/25/1985
   date_hired: 01/27/2015
   department: Operations
-total: 2
+- id: 3
+  name: John G
+  city: Vail
+  state: CO
+  avatar: Wings
+  birthdate: 10/12/1975
+  date_hired: 05/14/2000
+  department: Accounting
+total: 3
