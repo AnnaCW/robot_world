@@ -1,1 +1,28 @@
-<h1> Robot World Dashboard</h1>
+
+<div class= "container">
+  <header class="jumbotron">
+      <div class="container">
+
+        <h1> Robot World Dashboard</h1>
+        <h3> Average Robot Age: <%= average_age %></h3>
+        <h3> Robots per City:
+          <% robots_per_city.each do |city, num| %>
+              <h4><%= city %>: <%= num %></h4>
+        </h3>
+      <% end %>
+
+      <h3> Robots per State:
+        <% robots_per_state.each do |state, num| %>
+            <h4><%= state %>: <%= num %></h4>
+      </h3>
+    <% end %>
+
+    <h3> Robots per Department:
+      <% robots_per_department.each do |department, num| %>
+          <h4><%= department %>: <%= num %></h4>
+    </h3>
+  <% end %>
+
+    </div>
+  </header>
+</div>

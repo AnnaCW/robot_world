@@ -1,11 +1,19 @@
 ---
 robots:
 - id: 1
-  name: John
-  city: John
-  state: ''
+  name: Helen J
+  city: Houston
+  state: TX
   avatar: ''
-  birthdate: ''
-  date_hired: ''
-  department: ''
-total: 1
+  birthdate: 05/16/1981
+  date_hired: 01/12/2014
+  department: Human Resources
+- id: 2
+  name: John Smith
+  city: Dallas
+  state: TX
+  avatar: ''
+  birthdate: 12/25/1985
+  date_hired: 01/27/2015
+  department: Operations
+total: 2

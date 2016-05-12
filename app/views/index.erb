@@ -1,12 +1,26 @@
-<h1>All Robots</h1>
+<div class= "container">
+  <ul>
+    <li><a href="/">Robot Dashboard</a></li>
+    <li><a href="/robots/new">New Robot</a></li>
+  </ul>
 
-<% @robots.each do |robot| %>
-  <h3><%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
-  <a href="/robots/<%= robot.id %>/edit">Edit</a>
+  <div class="jumbotron">
 
-<form action="/robot/<%= robot.id %>" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
-</form>
+      <div class="container">
 
-<% end %>
+        <h1>All Robots</h1>
+
+        <% @robots.each do |robot| %>
+          <h3><%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+          <a href="/robots/<%= robot.id %>/edit">Edit</a>
+
+        <form action="/robots/<%= robot.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete">
+        </form>
+        <% end %>
+
+    </div>
+  </div>
+
+</div>

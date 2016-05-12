@@ -1,5 +1,16 @@
 
-
-<h1> <%= @robot.name %> </h1>
+<div class = "container">
 
 <a href="/robots"> Robot Index</a>
+
+<h1> <%= @robot.name %> </h1>
+<h3> City: <%= @robot.city %> </h3>
+<h3> State: <%= @robot.state %> </h3>
+<h3> Avatar: <%= @robot.avatar %> </h3>
+<h3> Birthdate: <%= @robot.birthdate %> </h3>
+<h3> Date Hired: <%= @robot.date_hired %> </h3>
+<h3> Department: <%= @robot.department %> </h3>
+
+</div>
+
+<img class ="thumbnail" src="https://robohash.org/hello">

@@ -1,12 +1,11 @@
-require 'models/robot_repository'
 
 class RobotWorldApp < Sinatra::Base
-  set :root, File.expand_path("..", __dir__)
-  set :method_override, true
 
   get '/' do
+    # @robot_statistics = RobotStatistics.new
     erb :dashboard
   end
+# define instance varible here equal to the class where the code occurs
 
   get '/robots' do
     @robots = robot_repository.all
@@ -34,11 +33,37 @@ class RobotWorldApp < Sinatra::Base
 
   put '/robots/:id' do |id|
     robot_repository.update(id.to_i, params[:robot])
-    redirect "/robots#{id}"
-  end 
+    redirect "/robots"
+  end
+
+  delete '/robots/:id' do |id|
+    robot_repository.destroy(id.to_i)
+    redirect "/robots"
+  end
+
+  def average_age
+    robot_repository.average_age
+  end
+
+  def robots_per_city
+    robot_repository.robots_per_city
+  end
+
+  def robots_per_state
+    robot_repository.robots_per_state
+  end
+
+  def robots_per_department
+    robot_repository.robots_per_department
+  end
+
 
   def robot_repository
-    database = YAML::Store.new('db/robot_repository')
+    if ENV['RACK_ENV'] == "test"
+      database = YAML::Store.new('db/robot_repository_test')
+    else
+      database = YAML::Store.new('db/robot_repository')
+    end
     @robot_repository ||= RobotRepository.new(database)
   end
 
