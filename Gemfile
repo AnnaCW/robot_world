@@ -6,3 +6,6 @@ gem 'minitest'
 gem 'pry'
 gem 'capybara'
 gem 'launchy'
+
+gem 'sequel'
+gem 'pg'

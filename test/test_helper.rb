@@ -14,7 +14,7 @@ module TestHelpers
   end
 
   def robot_repository
-    database = YAML::Store.new('db/robot_repository_test')
+    database = Sequel.postgres('robot_repository_test')
     @robot_repository ||= RobotRepository.new(database)
   end
 end

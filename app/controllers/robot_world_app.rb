@@ -60,9 +60,9 @@ class RobotWorldApp < Sinatra::Base
 
   def robot_repository
     if ENV['RACK_ENV'] == "test"
-      database = YAML::Store.new('db/robot_repository_test')
+      database = Sequel.postgres('robot_repository_test')
     else
-      database = YAML::Store.new('db/robot_repository')
+      database = Sequel.postgres('robot_repository')
     end
     @robot_repository ||= RobotRepository.new(database)
   end

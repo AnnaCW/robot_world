@@ -1,5 +1,3 @@
-require 'yaml/store'
-
 class RobotRepository
   attr_reader :database
 
@@ -8,26 +6,19 @@ class RobotRepository
   end
 
   def create(robot)
-    database.transaction do
-      database['robots'] ||= []
-      database['total'] ||= 0
-      database['total'] += 1
-      database['robots'] << { "id" => database['total'], "name" => robot[:name], "city" => robot[:city], "state" => robot[:state], "avatar" => robot[:avatar], "birthdate" => robot[:birthdate], "date_hired" => robot[:date_hired], "department" => robot[:department]}
-    end
+    table.insert(name: robot[:name], city: robot[:city], state: robot[:state], avatar: robot[:avatar], date_hired: robot[:date_hired], department: robot[:department])
   end
 
-  def raw_robots
-    database.transaction do
-      database['robots'] || []
-    end
+  def table
+    database.from(:robots).order(:id)
   end
 
   def all
-    raw_robots.map {|data| Robot.new(data)}
+    table.to_a.map {|robot| Robot.new(robot)}
   end
 
   def raw_robot(id)
-    raw_robots.find { |robot| robot["id"] == id }
+    table.where(:id => id).to_a.first
   end
 
   def find(id)
@@ -35,36 +26,26 @@ class RobotRepository
   end
 
   def update(id, robot)
-    database.transaction do
-      target_robot = database['robots'].find { |data| data["id"]== id}
-      target_robot["name"] = robot[:name]
-      target_robot["city"] = robot[:city]
-      target_robot["state"] = robot[:state]
-      target_robot["avatar"] = robot[:avatar]
-      target_robot["birthdate"] = robot[:birthdate]
-      target_robot["date_hired"] = robot[:date_hired]
-      target_robot["department"] = robot[:department]
-    end
+    locate_robot(id).update(robot)
   end
 
   def destroy(id)
-    database.transaction do
-      database["robots"].delete_if {|robot| robot["id"] == id }
-      # database['total'] -= 1
-    end
+    locate_robot(id).delete
   end
 
   def delete_all
-    database.transaction do
-      database['robots'] = []
-      database['total'] = 0
-    end
+    table.delete
+  end
+
+  def locate_robot(id)
+    table.where(id: id)
   end
 
   def birthday_strings
-    database.transaction do
-      birthday_strings = database["robots"].map { |robot| robot["birthdate"]}
-    end
+    table.to_a.map {|robot| robot[:birthdate]}
+    # database.transaction do
+    #   birthday_strings = database["robots"].map { |robot| robot["birthdate"]}
+    # end
   end
 
   def average_age
