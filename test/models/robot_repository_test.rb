@@ -37,7 +37,7 @@ class RobotRepositoryTest < Minitest::Test
     robot_id = robot_repository.create({name: "Helen", city: "Dallas", state: "Texas", avatar: "Boron", birthdate: "9/20/1990", date_hired: "01/23/2014", department: "Special Operations"})
     robot_repository.destroy(robot_id)
 
-    assert_equal robot_id, robot_repository.all.count
+    assert_equal 0, robot_repository.all.count
   end
 
 end

@@ -11,29 +11,34 @@
   </div>
 </nav>
 
-
   <div class="jumbotron">
       <div class="container-fluid">
         <h1> Robot World Dashboard</h1>
-        
-        <h3> Average Robot Age: <%= average_age %></h3>
+
+        <h3> Average Robot Age: <%= @robot_statistics.average_age %></h3>
         <h3> Robots per City:
-          <% robots_per_city.each do |city, num| %>
+          <% @robot_statistics.robots_per_city.each do |city, num| %>
               <h4><%= city %>: <%= num %></h4>
         </h3>
       <% end %>
 
-      <h3> Robots per State:
-        <% robots_per_state.each do |state, num| %>
+      <h3> Robots Per State:
+        <% @robot_statistics.robots_per_state.each do |state, num| %>
             <h4><%= state %>: <%= num %></h4>
       </h3>
     <% end %>
 
-    <h3> Robots per Department:
-      <% robots_per_department.each do |department, num| %>
+    <h3> Robots Per Department:
+      <% @robot_statistics.robots_per_department.each do |department, num| %>
           <h4><%= department %>: <%= num %></h4>
     </h3>
   <% end %>
+
+  <h3> Robots Hired By Year:
+    <% @robot_statistics.robots_hired_per_year.each do |year, count| %>
+        <h4><%= year %>: <%= count %></h4>
+  </h3>
+<% end %>
 
     </div>
   </div>

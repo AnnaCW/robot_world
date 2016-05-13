@@ -1,11 +1,9 @@
-
 class RobotWorldApp < Sinatra::Base
 
   get '/' do
-    # @robot_statistics = RobotStatistics.new
+    @robot_statistics = robot_repository.statistics
     erb :dashboard
   end
-# define instance varible here equal to the class where the code occurs
 
   get '/robots' do
     @robots = robot_repository.all
@@ -41,21 +39,21 @@ class RobotWorldApp < Sinatra::Base
     redirect "/robots"
   end
 
-  def average_age
-    robot_repository.average_age
-  end
-
-  def robots_per_city
-    robot_repository.robots_per_city
-  end
-
-  def robots_per_state
-    robot_repository.robots_per_state
-  end
-
-  def robots_per_department
-    robot_repository.robots_per_department
-  end
+  # def average_age
+  #   robot_repository.average_age
+  # end
+  #
+  # def robots_per_city
+  #   robot_repository.robots_per_city
+  # end
+  #
+  # def robots_per_state
+  #   robot_repository.robots_per_state
+  # end
+  #
+  # def robots_per_department
+  #   robot_repository.robots_per_department
+  # end
 
 
   def robot_repository

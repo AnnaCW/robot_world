@@ -17,6 +17,7 @@ module TestHelpers
     database = Sequel.postgres('robot_repository_test')
     @robot_repository ||= RobotRepository.new(database)
   end
+
 end
 
 Capybara.app = RobotWorldApp

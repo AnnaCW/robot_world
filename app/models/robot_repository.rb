@@ -1,16 +1,19 @@
 class RobotRepository
   attr_reader :database
+  attr_reader :table
+  attr_reader :statistics
 
   def initialize(database)
     @database = database
+    @statistics = RobotStatistics.new(table)
   end
 
   def create(robot)
-    table.insert(name: robot[:name], city: robot[:city], state: robot[:state], avatar: robot[:avatar], date_hired: robot[:date_hired], department: robot[:department])
+    table.insert(name: robot[:name], city: robot[:city], state: robot[:state], avatar: robot[:avatar], birthdate: robot[:birthdate], date_hired: robot[:date_hired], department: robot[:department])
   end
 
   def table
-    database.from(:robots).order(:id)
+    @table = database.from(:robots).order(:id)
   end
 
   def all
@@ -41,69 +44,45 @@ class RobotRepository
     table.where(id: id)
   end
 
-  def birthday_strings
-    table.to_a.map {|robot| robot[:birthdate]}
-    # database.transaction do
-    #   birthday_strings = database["robots"].map { |robot| robot["birthdate"]}
-    # end
-  end
-
-  def average_age
-    birthdates = birthday_strings.map {|date| date.split("/")}
-
-    years = birthdates.map do |date|
-      Time.mktime(date[2].to_i)
-    end
-    ages = years.map do |year|
-      Time.now - year
-    end
-      (ages.reduce(:+)/ages.length/31536000).round
-  end
-
-
-  def robot_cities
-    database.transaction do
-      database["robots"].map { |robot| robot["city"]}
-    end
-  end
-
-  def robots_per_city
-    city_occurences = robot_cities.group_by do |city|
-      city
-    end
-    city_occurences.map do |city, occurences|
-      [city, occurences.count]
-    end
-  end
-
-  def robot_states
-    database.transaction do
-      database["robots"].map { |robot| robot["state"]}
-    end
-  end
-
-  def robots_per_state
-    state_occurences = robot_states.group_by do |state|
-      state
-    end
-    state_occurences.map do |state, occurences|
-      [state, occurences.count]
-    end
-  end
-
-  def robot_departments
-    database.transaction do
-      database["robots"].map { |robot| robot["department"]}
-    end
-  end
-
-  def robots_per_department
-    department_occurences = robot_departments.group_by do |department|
-      department
-    end
-    department_occurences.map do |department, occurences|
-      [department, occurences.count]
-    end
-  end
+  # def birthdates
+  #   table.to_a.map {|robot| robot[:birthdate]}
+  # end
+  #
+  # def birthdates_split
+  #    birthdates.map {|date| date.split("/")}
+  # end
+  #
+  # def average_age
+  #   years = birthdates_split.map {|date| Time.mktime(date[2].to_i)}
+  #   ages = years.map {|year| Time.now - year}
+  #   (ages.reduce(:+)/ages.length/31536000).round
+  # end
+  #
+  # def robot_cities
+  #   table.to_a.map { |robot| robot[:city]}
+  # end
+  #
+  # def robots_per_city
+  #   city_occurences = robot_cities.group_by {|city| city}
+  #   city_occurences.map {|city, occurences| [city, occurences.count]}
+  # end
+  #
+  # def robot_states
+  #   table.to_a.map { |robot| robot[:state]}
+  # end
+  #
+  # def robots_per_state
+  #   state_occurences = robot_states.group_by {|state| state}
+  #   state_occurences.map {|state, occurences| [state, occurences.count]}
+  # end
+  #
+  # def robot_departments
+  #   table.to_a.map {|robot| robot[:department]}
+  # end
+  #
+  # def robots_per_department
+  #   departments = robot_departments.group_by {|department| department}
+  #   departments.map {|department, occurences| [department, occurences.count]}
+  # end
 
 end
