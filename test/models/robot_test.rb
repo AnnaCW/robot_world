@@ -9,7 +9,6 @@ class RobotTest < Minitest::Test
       :name => "Harrison",
       :city => "Portland",
       :state => "Oregon",
-      :avatar => "Zoron",
       :birthdate => "10/20/1981",
       :date_hired => "01/23/2015",
       :department => "Special Operations"

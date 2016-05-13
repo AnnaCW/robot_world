@@ -10,11 +10,11 @@ class RobotStatistics
   end
 
   def birthdates_split
-     birthdates.map {|date| date.split("/")}
+     birthdates.map {|date| date.split("-")}
   end
 
   def average_age
-    years = birthdates_split.map {|date| Time.mktime(date[2].to_i)}
+    years = birthdates_split.map {|date| Time.mktime(date[0].to_i)}
     ages = years.map {|year| Time.now - year}
     (ages.reduce(:+)/ages.length/31536000).round
   end
@@ -24,11 +24,11 @@ class RobotStatistics
   end
 
   def hire_dates_split
-    hire_dates.map {|date| date.split("/")}
+    hire_dates.map {|date| date.split("-")}
   end
 
   def robots_hired_per_year
-    years = hire_dates_split.map {|date| date[2]}.map
+    years = hire_dates_split.map {|date| date[0]}.map
     year_occurences = years.group_by {|year| year}
     year_occurences.map {|year, occurences| [year, occurences.count]}
   end

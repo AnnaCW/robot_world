@@ -9,7 +9,7 @@ class RobotRepository
   end
 
   def create(robot)
-    table.insert(name: robot[:name], city: robot[:city], state: robot[:state], avatar: robot[:avatar], birthdate: robot[:birthdate], date_hired: robot[:date_hired], department: robot[:department])
+    table.insert(name: robot[:name], city: robot[:city], state: robot[:state], birthdate: robot[:birthdate], date_hired: robot[:date_hired], department: robot[:department])
   end
 
   def table

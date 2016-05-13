@@ -4,6 +4,7 @@
         <h1> Robot World Dashboard</h1>
 
         <h3> Average Robot Age: <%= @robot_statistics.average_age %></h3>
+
         <h3> Robots per City:
           <% @robot_statistics.robots_per_city.each do |city, num| %>
               <h4><%= city %>: <%= num %></h4>
