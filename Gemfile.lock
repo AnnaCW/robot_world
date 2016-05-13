@@ -30,6 +30,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (11.1.2)
     sequel (4.34.0)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -51,6 +52,7 @@ DEPENDENCIES
   minitest
   pg
   pry
+  rake
   sequel
   shotgun
   sinatra
