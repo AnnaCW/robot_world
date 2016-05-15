@@ -54,6 +54,7 @@ table {
 
 body {
   background-image: url("https://farm4.staticflickr.com/3246/2723151022_958fb4305f.jpg");
+  background-size: cover;
   color: #580000;
   font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -138,11 +139,11 @@ body {
 }
 
 .row-alt {
-   /*background: #cbe2c1;
-   background: -webkit-linear-gradient(to right, #580000, ##f02f17);
-   background: -moz-linear-gradient(to right, #580000, #f02f17);
-   background: linear-gradient(to right, #580000, #f02f17);*/
-   padding: 44px 0 22px 0;
+   background: #580000;
+   background: -webkit-linear-gradient(to right, #300000, #580000);
+   background: -moz-linear-gradient(to right, #300000, #580000));
+   background: linear-gradient(to right, #300000, #580000);
+   padding: 25px 0 20px 0;
  }
 
  .row-background-image {
@@ -292,6 +293,29 @@ a:hover {
   padding: 10px 30px;
 }
 .btn-alt:hover {
+  background: #fff;
+  color: #580000;
+  border: 1px solid #580000;
+}
+
+.btn-sub {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  padding: 10px 30px;
+  font-size: 12px;
+  height: 35px;
+  width: 88px;
+  text-align: left;
+}
+
+.btn-sub:hover {
   background: #fff;
   color: #580000;
   border: 1px solid #580000;
