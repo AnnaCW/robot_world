@@ -1,34 +1,42 @@
 
-  <div class="jumbotron">
-      <div class="container-fluid">
-        <h1> Robot World Dashboard</h1>
+<div class="jumbotron text-center">
+  <h1> Robot World Dashboard</h1>
+</div>
 
-        <h3> Average Robot Age: <%= @robot_statistics.average_age %></h3>
 
-        <h3> Robots per City:
+<div class='container'>
+
+    <div class='row well'>
+
+      <div class='col-md-6'>
+        <h3> Average Robot Age: <h3>
+        <h4>  <%= @robot_statistics.average_age %></h4>
+
+        <h3> Robots per City: </h3>
           <% @robot_statistics.robots_per_city.each do |city, num| %>
               <h4><%= city %>: <%= num %></h4>
-        </h3>
-      <% end %>
+              <% end %>
 
-      <h3> Robots Per State:
-        <% @robot_statistics.robots_per_state.each do |state, num| %>
+        <h3> Robots Per State: </h3>
+          <% @robot_statistics.robots_per_state.each do |state, num| %>
             <h4><%= state %>: <%= num %></h4>
-      </h3>
-    <% end %>
+        <% end %>
 
-    <h3> Robots Per Department:
-      <% @robot_statistics.robots_per_department.each do |department, num| %>
+        <h3> Robots Per Department: </h3>
+          <% @robot_statistics.robots_per_department.each do |department, num| %>
           <h4><%= department %>: <%= num %></h4>
-    </h3>
-  <% end %>
+          <% end %>
 
-  <h3> Robots Hired By Year:
-    <% @robot_statistics.robots_hired_per_year.each do |year, count| %>
-        <h4><%= year %>: <%= count %></h4>
-  </h3>
-<% end %>
+          <h3> Robots Hired By Year: </h3>
+            <% @robot_statistics.robots_hired_per_year.each do |year, count| %>
+                <h4><%= year %>: <%= count %></h4>
+            <% end %>
 
-    </div>
+        </div>
+
+      <div class='col-md-6'>
+        <img src='https://farm7.staticflickr.com/6187/6054632360_b35d485511.jpg' alt='robot' class='center-block'>
+      </div>
+
   </div>
 </div>

@@ -1,24 +1,21 @@
 
-  <div class="jumbotron">
+<div class="container">
 
-      <div class="container">
-
-        <h1>All Robots</h1>
-
-        <% @robots.each do |robot| %>
-          <div class='row'>
-            <h3><%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
-            <a href="/robots/<%= robot.id %>/edit">Edit</a>
-            <img class ="thumbnail" src="https://robohash.org/<%= robot.city %>" >
-          </div>
-
-        <form action="/robots/<%= robot.id %>" method="post">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete">
-        </form>
-        <% end %>
-
-    </div>
+  <div class='container text-center'>
+      <h1>All The Robots!</h1>
   </div>
+
+  <% @robots.each do |robot| %>
+      <div class='col-md-4'>
+          <img class ="thumbnail" src="https://robohash.org/<%= robot.id %>" >
+          <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+          <a href="/robots/<%= robot.id %>/edit"> <button type = 'button' class='btn btn-warning'>Edit</button></a>
+
+          <form action="/robots/<%= robot.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type = 'button' class='btn btn-danger'>Delete</button>
+          </form>
+       </div>
+      <% end %>
 
 </div>

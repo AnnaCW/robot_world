@@ -1,12 +1,20 @@
+<div class='row well'>
+  <div class='col-md-6'>
+    <form action="/robots/ <%= @robot.id %>" method="post">
+    <h1>Edit <%= @robot.name %></h1>
+      <input type="hidden" name="_method" value="PUT">
+      <input type="text" name="robot[name]" value="<%= @robot.name %>" placeholder="Name">
+      <input type="text" name="robot[city]" value="<%= @robot.city %>" placeholder="City">
+      <input type="text" name="robot[state]" value="<%= @robot.state %>" placeholder="State">
+      <input type="text" name="robot[birthdate]" value="<%= @robot.birthdate %>" placeholder="birthdate">
+      <input type="text" name="robot[date_hired]" value="<%= @robot.date_hired %>" placeholder="Date Hired">
+      <input type="text" name="robot[department]" value="<%= @robot.department %>" placeholder="Department">
+      <input type='submit'/>
+    </form>
+  </div>
 
-<form action="/robots/ <%= @robot.id %>" method="post">
-<p>Edit</p>
-  <input type="hidden" name="_method" value="PUT">
-  <input type="text" name="robot[name]" value="<%= @robot.name %>" placeholder="Name">
-  <input type="text" name="robot[city]" value="<%= @robot.city %>" placeholder="City">
-  <input type="text" name="robot[state]" value="<%= @robot.state %>" placeholder="State">
-  <input type="text" name="robot[birthdate]" value="<%= @robot.birthdate %>" placeholder="birthdate">
-  <input type="text" name="robot[date_hired]" value="<%= @robot.date_hired %>" placeholder="Date Hired">
-  <input type="text" name="robot[department]" value="<%= @robot.department %>" placeholder="Department">
-  <input type='submit'/>
-</form>
+  <div class='col-md-6'>
+    <img class ="thumbnail" src="https://robohash.org/<%= @robot.id %>" >
+  </div?
+
+</div>
