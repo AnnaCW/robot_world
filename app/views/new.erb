@@ -1,15 +1,50 @@
-<div class='well'>
 
-<form action = "/robots" method = "post">
-  <h1>Create a New Robot:</h1>
-  <input type="text" name="robot[name]" placeholder="Name">
-  <input type="text" name="robot[city]" placeholder="City">
-  <input type="text" name="robot[state]" placeholder="State">
-  <!-- <input type="text" name="robot[avatar]" placeholder="Avatar"> -->
-  <input type="date" name="robot[birthdate]" placeholder="Birthdate">
-  <input type="date" name="robot[date_hired]" placeholder="Date Hired">
-  <input type="text" name="robot[department]" placeholder="Department">
-  <input type='submit' value="Submit"/>
-</form>
+<section class='row'>
+  <div class="grid">
+    <div class='col-1-3'>
+      <h3> Create a New Robot:</h3>
 
-</div>
+
+  <form class="robot-form" action = "/robots" method = "post">
+
+    <fieldset class="robot-group">
+
+    <label>
+      Name
+      <input type="text" name="robot[name]" placeholder="Full Name" required>
+    </label>
+
+    <label>
+      City
+      <input type="text" name="robot[city]" placeholder="City" required>
+    </label>
+
+    <label>
+      State
+      <input type="text" name="robot[state]" placeholder="State" required>
+    </label>
+
+    <label>
+      DOB
+      <input type="date" name="robot[birthdate]" placeholder="Birthdate" required>
+    </label>
+
+    <label>
+      Date Hired
+      <input type="date" name="robot[date_hired]" placeholder="Date Hired" required>
+    </label>
+
+    <label>
+      Department
+      <input type="text" name="robot[department]" placeholder="Department" required>
+    </label>
+
+  </fieldset>
+
+    <input class="btn btn-default" type='submit' value="Submit"/>
+
+  </form>
+
+    </div>
+  </div>
+</section>

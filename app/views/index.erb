@@ -1,21 +1,23 @@
 
-<div class="container">
+<section class="hero container">
+    <h2>All The Robots!</h2>
+</section>
 
-  <div class='container text-center'>
-      <h1>All The Robots!</h1>
-  </div>
 
-  <% @robots.each do |robot| %>
-      <div class='col-md-4'>
-          <img class ="thumbnail" src="https://robohash.org/<%= robot.id %>" >
+<section class="row">
+  <div class = "grid">
+    <% @robots.each do |robot| %><section class='robot-listing col-1-3'>
+          <img class ="thumbnail" src="https://robohash.org/<%= robot.id %>">
+
           <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
-          <a href="/robots/<%= robot.id %>/edit"> <button type = 'button' class='btn btn-warning'>Edit</button></a>
 
+          <a href="/robots/<%= robot.id %>/edit"> <button type = 'button' class='btn btn-alt'>Edit</button></a>
           <form action="/robots/<%= robot.id %>" method="post">
           <input type="hidden" name="_method" value="DELETE">
-          <button type = 'button' class='btn btn-danger'>Delete</button>
+          <button type ='button' class='btn btn-alt'>Delete</button>
           </form>
-       </div>
-      <% end %>
 
-</div>
+        </section><% end %><!--remove white space comment to remove white space -->
+
+      </div>
+</section>

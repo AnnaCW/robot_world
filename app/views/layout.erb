@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="/application.css">
-  <link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet"
+  href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
   <title>Robot World</title>
 </head>
   <body>
 
-    <!-- <div class="container-fluid"> -->
-      <!-- <nav class="navbar navbar-default"> -->
-        <!-- <div class='container-fluid'> -->
-        <div class='col-md-12 navbar navbar-default navbar-static-top'>
-          <a href='/' class='navbar-brand'>Dashboard</a>
-          <ul class='nav navbar-nav navbar-right'>
-            <li><a href="/robots">All Robots</a></li>
-            <li><a href="/robots/new">New Robot</a></li>
-          </ul>
-        </div>
-      <!-- </nav> -->
+  <header class="primary-header container group">
+    <h1 class="logo">Robot World</h1>
+    <nav class="nav primary-nav">
+      <ul>
+         <li><a href='/'>Dashboard</a></li><!--
+      --><li><a href="/robots">All Robots</a></li><!--
+      --><li><a href="/robots/new">New Robot</a></li><!--
+  --></ul>
+    </nav>
+  </header>
 
-          <%= yield %>
 
-      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      <script src='js/bootstrap.js'></script>
+      <%= yield %>
 
-    </div>
+    <footer class="primary-footer container group">
+      <small> Robot World 2016</small>
+    </footer>
   </body>
 </html>
