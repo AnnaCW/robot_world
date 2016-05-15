@@ -145,6 +145,10 @@ body {
    padding: 44px 0 22px 0;
  }
 
+ .row-background-image {
+   background-image: url("https://farm4.staticflickr.com/3246/2723151022_958fb4305f.jpg");
+ }
+
 
 /*
   ========================================
@@ -283,14 +287,14 @@ a:hover {
   background: #a9b2b9;
 }
 
-
 .btn-alt {
   border: 1px solid #fff;
   padding: 10px 30px;
 }
 .btn-alt:hover {
   background: #fff;
-  color: #648880;
+  color: #580000;
+  border: 1px solid #580000;
 }
 
 /*
@@ -315,6 +319,10 @@ a:hover {
   margin-top: 20px;
   padding-bottom: 10px;
   text-align: left;
+}
+
+.robot-listing h3 {
+  color:white;
 }
 
 .robot-stat {
