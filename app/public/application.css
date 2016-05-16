@@ -289,36 +289,17 @@ a:hover {
 }
 
 .btn-alt {
-  border: 1px solid #fff;
-  padding: 10px 30px;
+  border: 1px solid #580000;
+  color: #580000;
+  background: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+
 }
 .btn-alt:hover {
-  background: #fff;
-  color: #580000;
-  border: 1px solid #580000;
-}
-
-.btn-sub {
-  border-radius: 5px;
   color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  letter-spacing: .5px;
-  margin: 0;
-  text-transform: uppercase;
+  background: #580000;
   border: 1px solid #fff;
-  padding: 10px 30px;
-  font-size: 12px;
-  height: 35px;
-  width: 88px;
-  text-align: left;
-}
-
-.btn-sub:hover {
-  background: #fff;
-  color: #580000;
-  border: 1px solid #580000;
 }
 
 /*
