@@ -1,5 +1,5 @@
-Sinatra Crud - Robot World
-Turing Project - M2
+Sinatra Crud (Robot World)
+Turing Project M2
 May 2016
 
 Project Description:
